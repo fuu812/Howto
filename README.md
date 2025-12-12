@@ -1,5 +1,6 @@
 **知能情報実験1 手順書**
 1. 前提条件・実行環境
+---
    - OS: Linux12
    - 実行環境: raspberry Pi OS
    - 利用ツール: Docker, Minikube
