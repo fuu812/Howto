@@ -90,7 +90,7 @@
  type: NodePort
  ports:
  - port: 80
- targetPort: 80 # ここが ratgetPort になっていました
+ targetPort: 80 
  nodePort: 30080 # 外部からアクセスするポート番号
  selector:
  app: wordpress
@@ -128,10 +128,10 @@
  - name: WORDPRESS_DB_NAME
  value: wordpress_db
  ports:
- - containerPort: 80`
+ - containerPort: 80```
 - yamlファイルの適用
   `kubectl apply -f apache-custom.yaml
-   # yamlファイルの内容をクラスタに適用する```
+   # yamlファイルの内容をクラスタに適用する`
 - 公開したサービス(WordPress)でコンテンツを作成する
   言語選択画面が表示されるので、日本語を選択後にユーザー名とパスワード、メールアドレスを入力する。
 - サービス内での記事作成
