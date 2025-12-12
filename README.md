@@ -1,17 +1,17 @@
 **知能情報実験1 手順書**
 1. 前提条件・実行環境
-# ---
+#
    - OS: Linux12
    - 実行環境: raspberry Pi OS
    - 利用ツール: Docker, Minikube
 
 2.目的と完成条件の定義
-# ---
+#
 目的: Docker Composeを用いてWeb+データベース(DB)の2コンテナ構成を実装する。
 完成条件: DBコンテナのみを停止させたときにデータベース接続確立エラーが発生し、復活させたときに元のブログ画面が表示される
   
 3.構築手順
-# ---
+#
 - Dockerをインストールする。
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh
