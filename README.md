@@ -17,25 +17,32 @@ sudo sh get-docker.sh
 # ダウンロードしたインストールスクリプトの実行
 ```
 - kubectlのインストール
-```curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
 # 最新版のダウンロード
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-# インストール```
+# インストール
+```
 - スワップを停止させる
-```sudo swapoff -a
+```
+sudo swapoff -a
 #一時的にスワップを停止
 sudo sed -I '/swap/d' /etc/fstab
-#再起動後もスワップを無効化させる```
+#再起動後もスワップを無効化させる
+```
 - Minikubeのインストールと起動
-```curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64
+```
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-arm64
 # Minikubeのダウンロード
 sudo install minikube-linux-arm64 /usr/local/bin/minikube
 # Minikubeのインストール
 minikube start --driver=docker
-# Dockerドライバを使用してMinikubeを起動```
+# Dockerドライバを使用してMinikubeを起動
+```
 - Apacheデプロイメントの作成と管理
 マニフェストファイルとして、yamlファイルを作成し、apache-custom.yamlという名前で保存する。内容は以下の通り
-```# -------------------
+```
+# -------------------
  # 1. DBのサービス (内部通信用)
  # -------------------
  apiVersion: v1
@@ -130,20 +137,27 @@ minikube start --driver=docker
  - name: WORDPRESS_DB_NAME
  value: wordpress_db
  ports:
- - containerPort: 80```
+ - containerPort: 80
+```
 - yamlファイルの適用
-```kubectl apply -f apache-custom.yaml
-# yamlファイルの内容をクラスタに適用する```
+```
+kubectl apply -f apache-custom.yaml
+# yamlファイルの内容をクラスタに適用する
+```
 - 公開したサービス(WordPress)でコンテンツを作成する
 言語選択画面が表示されるので、日本語を選択後にユーザー名とパスワード、メールアドレスを入力する。
 - サービス内での記事作成
 サービス内でKubernetes接続テストという記事を作成する。
 - DBコンテナのみを停止させる
-```kubectl scale deployment wordpress-mysql –replicas=0 # DBの数を0にする```
+```
+kubectl scale deployment wordpress-mysql –replicas=0 # DBの数を0にする
+```
 - リロードする
 リロードしてデータベース接続確認エラーが発生することを確認する。
 - DBを復活させる
-```kubectl scale deployment wordpress-mysql –replicas=1 # DBの数を1にする```
+```
+kubectl scale deployment wordpress-mysql –replicas=1 # DBの数を1にする
+```
 - リロードする
 リロードして、元のブログ画面が表示されることを確かめる。
 3.トラブルシューティング
