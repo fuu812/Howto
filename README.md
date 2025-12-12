@@ -13,7 +13,7 @@
 ```curl -fsSL https://get.docker.com -o get-docker.sh
 # インストールスクリプトをダウンロード
 sudo sh get-docker.sh
-# ダウンロードしたインストールスクリプトの実行```
+```# ダウンロードしたインストールスクリプトの実行
 - kubectlのインストール
 ```curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
 # 最新版のダウンロード
